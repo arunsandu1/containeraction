@@ -1,0 +1,22 @@
+name: my container actions workflow
+on: push
+
+jobs:
+  my-job:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - uses: actions/checkout@v2
+      - name: run the action
+        id: hello
+        uses: ./
+        with:
+          myInput: 'Myland'
+          
+      - name: output
+        run: |
+          echo ${{ steps.hello.outputs.memory }}
+          echo "total memory successfully output"
+          
+         
+        
